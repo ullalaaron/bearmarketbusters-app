@@ -6,7 +6,7 @@ export interface BearMarketBuster {
   name: string;
   description: string;
   image: string;
-  price: number;
+  basePrice: number;
   minted: boolean;
 }
 
@@ -41,7 +41,7 @@ export function BearDetail(props: IBearDetailProps) {
           borderRadius="0.75rem"
           paddingX="0.5rem"
         >
-          {props.bear.price} Ξ
+          {props.bear.basePrice} Ξ
         </Text>
       </Flex>
       <Box

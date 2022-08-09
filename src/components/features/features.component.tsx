@@ -6,11 +6,15 @@ import {
   InvertedFeatureContainer,
 } from "./features.styles";
 
-export interface IFeaturesProps {
-  features: string[];
-}
+export interface IFeaturesProps {}
 
-export function Features(props: IFeaturesProps) {
+export function Features() {
+  const features = [
+    "NO TWITTER  - NO DISCORD - NOTHING",
+    "10 NFTs HAND DRAWN WITH iOS NOTES APP",
+    "PRETTY USELESS PROJECT",
+    "NONE OF THE FUNDS WILL BE SHARED WITH THE COMMUNTY BECAUSE THERE IS NO COMMUNITY",
+  ];
   return (
     <Box paddingTop="3rem" bg="whiteGray" width="100%" position="relative">
       <Flex
@@ -24,7 +28,7 @@ export function Features(props: IFeaturesProps) {
         paddingBottom="10rem"
       >
         <Heading color="brown">FEATURES</Heading>
-        {props.features.map((feature, index) => {
+        {features.map((feature, index) => {
           return index % 2 === 0 ? (
             <ClassicFeatureContainer key={index}>
               <Text>{feature}</Text>
