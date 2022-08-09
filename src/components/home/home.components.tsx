@@ -3,10 +3,23 @@ import { MintTimer } from "./mint-timer/mint-timer.component";
 import { LeftSideBearImage, RightSideBearImage } from "./home.styles";
 import { YellowWave } from "../../shared/components/yellow-wave/yellow-wave.component";
 import { Comment } from "./comment/comment.component";
+import { useRef, useState } from "react";
 
 export interface IHomeProps {}
 
 export function Home(props: IHomeProps) {
+  const [isIdle, setIsIdle] = useState(true);
+  const timerRef = useRef<NodeJS.Timeout>();
+  window.onscroll = function () {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    setIsIdle(false);
+    timerRef.current = setTimeout(() => {
+      setIsIdle(true);
+    }, 7000);
+  };
+
   const comments = [
     {
       comment: "Best NFT Collection of 2022",
@@ -53,8 +66,14 @@ export function Home(props: IHomeProps) {
           The first NFT collection that makes the Bear Market go away 🎉
         </Text>
       </Box>
-      <LeftSideBearImage src="./img/Hilde.png"></LeftSideBearImage>
-      <RightSideBearImage src="./img/Rascal.png"></RightSideBearImage>
+      <LeftSideBearImage
+        isIdle={isIdle}
+        src="./img/Hilde.png"
+      ></LeftSideBearImage>
+      <RightSideBearImage
+        isIdle={isIdle}
+        src="./img/Rascal.png"
+      ></RightSideBearImage>
       <MintTimer></MintTimer>
       <SimpleGrid
         columns={{ sm: 1, md: 3 }}

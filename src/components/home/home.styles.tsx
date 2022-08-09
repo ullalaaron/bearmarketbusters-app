@@ -22,10 +22,12 @@ const rightJump = keyframes`
 const rightAnimation = `${rightJump} 4s ease infinite`;
 
 export const SideBearImage = styled(Image, {
-  baseStyle: (props) => ({
+  baseStyle: (props: any) => ({
+    opacity: props.isIdle ? 1 : 0,
     width: ["22rem", "30rem"],
     position: "fixed",
     zIndex: "1",
+    transition: "opacity 1s ease",
   }),
 });
 export const LeftSideBearImage = styled(SideBearImage, {
