@@ -42,7 +42,7 @@ export function Comment(props: ICommentProps) {
           {Array(5)
             .fill(null)
             .map((value, index) => (
-              <Image src="./img/star.svg" display="inline"></Image>
+              <Image src="./img/star.svg" display="inline" key={index}></Image>
             ))}
         </Text>
         <Text fontSize={["1.5rem", "1.3rem"]} color="whiteGray" placeSelf="end">

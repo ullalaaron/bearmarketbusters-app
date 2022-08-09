@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import { BearMarketBuster } from "./components/bear-detail/bear-detail.component";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
@@ -6,6 +6,8 @@ import { Navbar } from "./components/navbar/navbar.component";
 import { Home } from "./components/home/home.components";
 import { Features } from "./components/features/features.component";
 import { HowItWorks } from "./components/how-it-works/how-it-works.component";
+import { BearList } from "./components/bear-list/bear-list.component";
+import { BearsMetadata } from "./shared/data/metadata";
 
 function App() {
   const colors = {
@@ -21,10 +23,7 @@ function App() {
   };
 
   const theme = extendTheme({ colors, fonts });
-
-  const [searchField, setSearchField] = useState("");
-  const [bears, setBears] = useState<BearMarketBuster[]>([]);
-  const [filteredBears, setFilteredBears] = useState(bears);
+  const [bearList, setBearList] = useState<BearMarketBuster[]>([]);
 
   const features = [
     "NO TWITTER  - NO DISCORD - NOTHING",
@@ -34,56 +33,17 @@ function App() {
   ];
 
   useEffect(() => {
-    const bears: BearMarketBuster[] = [
-      {
-        image:
-          "https://gateway.pinata.cloud/ipfs/QmS1gcMyZnSaeWPSVf89SU56LmuVdfgTct2Q7aVVRNGw9r/0.png",
-        tokenId: 0,
-        name: "Frank",
-        description: "A funny little fellow",
-      },
-      {
-        image:
-          "https://gateway.pinata.cloud/ipfs/QmS1gcMyZnSaeWPSVf89SU56LmuVdfgTct2Q7aVVRNGw9r/1.png",
-        tokenId: 1,
-        name: "Nancy",
-        description: "A rascal travelling the globe",
-      },
-      {
-        image:
-          "https://gateway.pinata.cloud/ipfs/QmS1gcMyZnSaeWPSVf89SU56LmuVdfgTct2Q7aVVRNGw9r/2.png",
-        tokenId: 2,
-        name: "Bethany",
-        description: "Makes the printer go brr",
-      },
-    ];
-    setBears(bears);
+    const bearList: BearMarketBuster[] = BearsMetadata;
+    setBearList(bearList);
   }, []);
 
-  useEffect(() => {
-    const filteredBears = bears.filter((bear) => {
-      return bear.name.toLocaleLowerCase().includes(searchField);
-    });
-
-    setFilteredBears(filteredBears);
-  }, [bears, searchField]);
-
-  const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldString);
-  };
   return (
     <ChakraProvider theme={theme}>
       <Navbar></Navbar>
       <Home></Home>
       <Features features={features}></Features>
       <HowItWorks></HowItWorks>
-      {/* <SearchBox
-        className="monsters-search-box"
-        onChangeHandler={onSearchChange}
-        placeholder="Searc Bear"
-      />
-      <BearList bearList={filteredBears} /> */}
+      <BearList bearList={bearList}></BearList>
     </ChakraProvider>
   );
 }

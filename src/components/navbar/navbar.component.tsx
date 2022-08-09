@@ -1,4 +1,5 @@
-import { Box, Button, Flex, HStack, Link } from "@chakra-ui/react";
+import { Button, Flex, HStack, Link } from "@chakra-ui/react";
+import { ActionButton } from "../../shared/components/action-button/action-button.component";
 import "./navbar.styles.scss";
 
 export interface INavbarProps {}
@@ -33,23 +34,12 @@ export function Navbar(props: INavbarProps) {
         </HStack>
       </div>
       <div className="connect-wallet">
-        <Box
-          as="button"
-          color="brown"
-          background="yellow"
-          boxShadow={"3px 3px 0px brown"}
-          borderRadius="66px"
-          padding="0.5rem"
-          _hover={{
-            background: "brown",
-            color: "yellow",
-            boxShadow(theme) {
-              return `3px 3px 0px ${theme.colors.yellow}`;
-            },
+        <ActionButton
+          text="Connect Wallet"
+          action={() => {
+            console.log("nabnar");
           }}
-        >
-          Connect Wallet
-        </Box>
+        />
       </div>
     </Flex>
   );

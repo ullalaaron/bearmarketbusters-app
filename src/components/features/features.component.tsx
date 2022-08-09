@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
-import { BrownWaveUp } from "./brown-wave/brown-wave.component";
+import { BrownWave } from "../../shared/components/brown-wave/brown-wave.component";
 import {
   ClassicFeatureContainer,
   CompanyContainer,
@@ -20,17 +20,17 @@ export function Features(props: IFeaturesProps) {
         right="0"
         margin="0 auto"
         width="90%"
-        maxWidth="80rem"
+        maxWidth={["90rem"]}
         paddingBottom="10rem"
       >
         <Heading color="brown">FEATURES</Heading>
         {props.features.map((feature, index) => {
           return index % 2 === 0 ? (
-            <ClassicFeatureContainer>
+            <ClassicFeatureContainer key={index}>
               <Text>{feature}</Text>
             </ClassicFeatureContainer>
           ) : (
-            <InvertedFeatureContainer>
+            <InvertedFeatureContainer key={index}>
               <Text>{feature}</Text>
             </InvertedFeatureContainer>
           );
@@ -39,7 +39,11 @@ export function Features(props: IFeaturesProps) {
         <Heading color="brown" marginY="3rem" maxW="40rem">
           SOME OF THE COMPANIES THAT DIDN'T SPEAK ABOUT US
         </Heading>
-        <Flex direction="row" justifyContent="space-between">
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <CompanyContainer>
             <Image src="./img/companies/cnbc.png"></Image>
           </CompanyContainer>
@@ -54,7 +58,7 @@ export function Features(props: IFeaturesProps) {
           </CompanyContainer>
         </Flex>
       </Flex>
-      <BrownWaveUp></BrownWaveUp>
+      <BrownWave></BrownWave>
     </Box>
   );
 }

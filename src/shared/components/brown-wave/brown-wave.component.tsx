@@ -1,9 +1,18 @@
 import "./brown-wave.component.scss";
-export interface IBrownWaveProps {}
+export interface IBrownWaveProps {
+  rotate?: boolean;
+  style?: React.CSSProperties;
+}
 
-export function BrownWaveUp(props: IBrownWaveProps) {
+export function BrownWave(props: IBrownWaveProps) {
   return (
-    <div className="custom-shape-divider-bottom-1659102697">
+    <div
+      className="custom-shape-divider-bottom-1659102697"
+      style={{
+        ...props.style,
+        transform: props.rotate ? "initial" : "rotate(180deg)",
+      }}
+    >
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
