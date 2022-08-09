@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import { MintTimer } from "./mint-timer/mint-timer.component";
 import { LeftSideBearImage, RightSideBearImage } from "./home.styles";
-import { YellowWave } from "./yellow-wave/yellow-wave.component";
+import { YellowWave } from "../../shared/components/yellow-wave/yellow-wave.component";
 import { Comment } from "./comment/comment.component";
 
 export interface IHomeProps {}
@@ -56,7 +56,6 @@ export function Home(props: IHomeProps) {
       <LeftSideBearImage src="./img/Hilde.png"></LeftSideBearImage>
       <RightSideBearImage src="./img/Rascal.png"></RightSideBearImage>
       <MintTimer></MintTimer>
-      <YellowWave></YellowWave>
       <SimpleGrid
         columns={{ sm: 1, md: 3 }}
         w="100%"
@@ -74,6 +73,7 @@ export function Home(props: IHomeProps) {
           );
         })}
       </SimpleGrid>
+      <YellowWave></YellowWave>
     </Flex>
   );
 }

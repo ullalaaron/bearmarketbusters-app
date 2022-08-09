@@ -17,13 +17,16 @@ export interface IBearDetailProps {
 export function BearDetail(props: IBearDetailProps) {
   return (
     <Flex
-      margin="2rem"
+      marginY="2rem"
+      marginX="1rem"
       padding="1rem"
       bg="whiteGray"
       border={"0.5rem solid var(--chakra-colors-brown)"}
       borderRadius="2rem"
       direction="column"
       alignItems="center"
+      flexBasis={["100%", "31%"]}
+      zIndex={1}
     >
       <Flex
         direction="row"
@@ -31,7 +34,11 @@ export function BearDetail(props: IBearDetailProps) {
         justifyContent="space-between"
         width="100%"
       >
-        <Text color={"brown"} fontSize="2.5rem">
+        <Text
+          color={"brown"}
+          fontSize={["1.5rem", "1.75rem", "2rem"]}
+          noOfLines={1}
+        >
           #{props.bear.tokenId} {props.bear.name}
         </Text>
         <Text
@@ -39,9 +46,10 @@ export function BearDetail(props: IBearDetailProps) {
           color={"brown"}
           border="0.25rem solid var(--chakra-colors-brown)"
           borderRadius="0.75rem"
-          paddingX="0.5rem"
+          paddingX="0.15rem"
+          noOfLines={1}
         >
-          {props.bear.basePrice} Ξ
+          {props.bear.basePrice} ETH
         </Text>
       </Flex>
       <Box
@@ -51,7 +59,7 @@ export function BearDetail(props: IBearDetailProps) {
         padding="1rem"
         marginY="1rem"
       >
-        <Image src={props.bear.image} margin="0 auto" />
+        <Image src={props.bear.image} margin="0 auto" height="13rem" />
       </Box>
       <Flex
         border={"0.25rem dashed var(--chakra-colors-brown)"}
@@ -60,8 +68,10 @@ export function BearDetail(props: IBearDetailProps) {
         alignItems="center"
         justifyContent="center"
         width="100%"
+        textOverflow="ellipsis"
+        height="7rem"
       >
-        <Text color={"brown"} height="3.5rem" fontSize="1.5rem">
+        <Text color={"brown"} fontSize="1.5rem">
           {props.bear.description}
         </Text>
       </Flex>
