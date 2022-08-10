@@ -5,6 +5,8 @@ import { Home } from "./components/home/home.components";
 import { Features } from "./components/features/features.component";
 import { HowItWorks } from "./components/how-it-works/how-it-works.component";
 import { BearList } from "./components/bear-list/bear-list.component";
+import { Roadmap } from "./components/roadmap/roadmap.component";
+import { Footer } from "./components/footer/footer.component";
 
 function App() {
   const colors = {
@@ -28,6 +30,8 @@ function App() {
       <Features></Features>
       <HowItWorks></HowItWorks>
       <BearList></BearList>
+      <Roadmap></Roadmap>
+      <Footer></Footer>
     </ChakraProvider>
   );
 }

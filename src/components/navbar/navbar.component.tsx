@@ -1,5 +1,6 @@
 import { Button, Flex, HStack, Link } from "@chakra-ui/react";
 import { ActionButton } from "../../shared/components/action-button/action-button.component";
+import { Logo } from "../../shared/components/logo/logo.component";
 import "./navbar.styles.scss";
 
 export interface INavbarProps {}
@@ -18,11 +19,7 @@ export function Navbar(props: INavbarProps) {
       alignItems="center"
       padding="1rem"
     >
-      <div id="logo">
-        <span>BEAR</span>
-        <span>MARKET</span>
-        <span>BUSTERS</span>
-      </div>
+      <Logo></Logo>
 
       <div className="menu-items">
         <HStack as="nav" spacing="5">
