@@ -42,7 +42,7 @@ export function BearList(props: IBearListProps) {
     >
       <BrownWave
         rotate={true}
-        style={{ position: "absolute", top: "0" }}
+        style={{ position: "absolute", top: "-0.5px" }} // hack: little yellow dot was showing up on some screens
       ></BrownWave>
       {isLoading && (
         <Box>

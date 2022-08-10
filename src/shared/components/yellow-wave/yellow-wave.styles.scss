@@ -1,6 +1,6 @@
 .yellow-wave {
     position:absolute;
-    bottom: 0;
+    bottom: -0.5px; /*Hack to fix yellow line one some screens */
     left: 0;
     width: 100%;
     overflow: hidden;

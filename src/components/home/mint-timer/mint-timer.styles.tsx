@@ -7,9 +7,8 @@ export const TimerItem = styled(Box, {
     border: "2px solid brown",
     boxShadow: "3px 3px 0px brown",
     borderRadius: "23px",
-    fontSize: "4rem",
+    fontSize: "3rem",
     fontWeight: "900",
-    padding: "1rem",
     margin: "1rem",
   },
 });

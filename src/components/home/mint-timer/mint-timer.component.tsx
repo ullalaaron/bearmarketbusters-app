@@ -8,11 +8,11 @@ export function MintTimer(props: IMintTImerProps) {
     <Box
       bg="whiteGray"
       borderColor="black"
-      borderWidth="2px"
-      borderRadius="46px"
+      borderWidth="0.15rem"
+      borderRadius="3rem"
       textAlign="center"
       w={["70%", "60%", "50%"]}
-      paddingY="3rem"
+      paddingY="2rem"
       maxWidth={["90rem"]}
     >
       <Heading as="h4" fontWeight="extrabold" fontSize="4xl">

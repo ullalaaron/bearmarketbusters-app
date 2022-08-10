@@ -42,10 +42,10 @@ export function Home(props: IHomeProps) {
       bg="yellow"
       paddingBottom={["35%", "25%", "20%", "15%"]}
       w="100%"
-      paddingTop={["40%", "25%", "20%", "8%"]}
+      paddingTop="8rem"
       position="relative"
     >
-      <Box>
+      <Box marginBottom="2rem">
         <Text color="brown" fontWeight="400" fontSize={["1.5rem"]}>
           Are you tired of getting crushed by the bear market?
         </Text>
@@ -54,15 +54,11 @@ export function Home(props: IHomeProps) {
           fontSize={["3rem", "4rem"]}
           fontWeight="900"
           stroke="black"
+          textShadow={"0.25rem 0.25rem 0 var(--chakra-colors-black)"}
         >
           Bear Market Busters
         </Heading>
-        <Text
-          color="brown"
-          fontWeight="400"
-          fontSize={["1.5rem"]}
-          marginBottom="5rem"
-        >
+        <Text color="brown" fontWeight="400" fontSize={["1.5rem"]}>
           The first NFT collection that makes the Bear Market go away 🎉
         </Text>
       </Box>
