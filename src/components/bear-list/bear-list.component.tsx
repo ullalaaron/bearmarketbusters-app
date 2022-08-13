@@ -14,7 +14,6 @@ import {
 
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import "./bear-list.component.scss";
 
 export interface IBearListProps {}
 

@@ -57,7 +57,7 @@ export function ContactForm(props: IContactFormProps) {
   }
 
   return (
-    <Box maxW="30rem" paddingY={{ base: "3rem", md: 0 }} margin="0 auto">
+    <Box maxW="40rem" paddingY={{ base: "3rem", md: 0 }} margin="0 auto">
       <HStack marginBottom="1rem">
         <Link
           as={Button}

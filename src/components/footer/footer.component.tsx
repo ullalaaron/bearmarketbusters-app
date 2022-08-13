@@ -16,7 +16,7 @@ export function Footer(props: IFooterProps) {
         alignContent="space-between"
       >
         <Logo inverted={true}></Logo>
-        <Box w="70%">
+        <Box w={{ base: "90%", md: "70%" }}>
           <ContactForm></ContactForm>
         </Box>
         <Button bg="transparent" variant="link">
