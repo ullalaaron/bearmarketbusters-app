@@ -17,6 +17,10 @@ export interface IBearDetailProps {
 export function BearDetail(props: IBearDetailProps) {
   return (
     <Flex
+      onDrag={(e) => e.preventDefault()}
+      margin="0 auto"
+      w="90vw"
+      maxW="25rem"
       marginY="2rem"
       marginX="1rem"
       padding="1rem"
@@ -27,12 +31,6 @@ export function BearDetail(props: IBearDetailProps) {
       flexBasis={["100%", "31%"]}
       zIndex={1}
       boxShadow="0.15rem 0.15rem 0.15rem var(--chakra-colors-brown)"
-      _hover={{
-        cursor: "pointer",
-        boxShadow: "0.25rem 0.25rem 0.25rem var(--chakra-colors-brown)",
-        transform: "scale(1.05)",
-        transition: "all 0.2s ease-in-out",
-      }}
     >
       <Flex
         direction="row"

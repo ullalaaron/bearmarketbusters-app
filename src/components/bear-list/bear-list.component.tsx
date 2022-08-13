@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Image, Spinner } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Spinner } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { BMB_METADATA_BASEURL } from "../../conf";
 import { BrownWave } from "../../shared/components/brown-wave/brown-wave.component";
@@ -7,15 +7,18 @@ import {
   BearDetail,
   BearMarketBuster,
 } from "../bear-detail/bear-detail.component";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import "./bear-list.component.scss";
 
 export interface IBearListProps {}
 
 export function BearList(props: IBearListProps) {
-  const handleDragStart = (e: any) => e.preventDefault();
-
   const [isLoading, setIsLoading] = useState(true);
   const [bearList, setBearList] = useState<JSX.Element[]>([]);
 
@@ -64,8 +67,8 @@ export function BearList(props: IBearListProps) {
         </Box>
       )}
       {!isLoading && (
-        <Box paddingBottom="25rem">
-          <Box maxWidth="90rem">
+        <Box paddingBottom="25rem" paddingTop="3rem">
+          <Box w="100vw" maxWidth="80rem">
             <AliceCarousel
               mouseTracking
               activeIndex={0}
@@ -74,16 +77,28 @@ export function BearList(props: IBearListProps) {
               keyboardNavigation={true}
               responsive={{
                 0: { items: 1 },
-                768: { items: 3 },
+              }}
+              renderPrevButton={() => (
+                <Button
+                  leftIcon={<BsFillArrowLeftCircleFill />}
+                  variant="link"
+                  fontSize="3rem"
+                  color="brown"
+                ></Button>
+              )}
+              renderNextButton={() => (
+                <Button
+                  leftIcon={<BsFillArrowRightCircleFill />}
+                  variant="link"
+                  fontSize="3rem"
+                  color="brown"
+                ></Button>
+              )}
+              onSlideChanged={(e) => {
+                console.log(e);
               }}
             />
           </Box>
-
-          {/* <Flex wrap="wrap" justifyContent="space-evenly" maxWidth="90rem">
-            {bearList.map((bear, index) => {
-              return <BearDetail key={index} bear={bear}></BearDetail>;
-            })}
-          </Flex> */}
           <Image
             src="/img/tree2.png"
             position="absolute"
