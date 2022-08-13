@@ -23,7 +23,7 @@ const rightAnimation = `${rightJump} 4s ease infinite`;
 
 export const SideBearImage = styled(Image, {
   baseStyle: (props: any) => ({
-    opacity: props.isIdle ? 1 : 0,
+    opacity: props.idle ? 1 : 0,
     width: ["22rem", "30rem"],
     position: "fixed",
     zIndex: "1",

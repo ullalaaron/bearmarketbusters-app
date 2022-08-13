@@ -63,11 +63,11 @@ export function Home(props: IHomeProps) {
         </Text>
       </Box>
       <LeftSideBearImage
-        isIdle={isIdle}
+        idle={+isIdle}
         src="./img/Hilde.png"
       ></LeftSideBearImage>
       <RightSideBearImage
-        isIdle={isIdle}
+        idle={+isIdle}
         src="./img/Rascal.png"
       ></RightSideBearImage>
       <MintTimer></MintTimer>

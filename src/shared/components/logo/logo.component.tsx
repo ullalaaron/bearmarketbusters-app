@@ -6,7 +6,7 @@ export interface ILogoProps {
 
 export function Logo(props: ILogoProps) {
   return (
-    <LogoContainer inverted={props.inverted}>
+    <LogoContainer inverted={+!!props.inverted}>
       <span>BEAR</span>
       <span>MARKET</span>
       <span>BUSTERS</span>
