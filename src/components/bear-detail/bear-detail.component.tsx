@@ -63,12 +63,13 @@ export function BearDetail(props: IBearDetailProps) {
       </Box>
       <Flex
         borderRadius="2rem"
-        padding="1rem"
         alignItems="center"
         justifyContent="center"
         width="100%"
         textOverflow="ellipsis"
         height="7rem"
+        paddingX="2rem"
+        textAlign="center"
       >
         <Text color={"brown"} fontSize="1.5rem">
           {props.bear.description}
