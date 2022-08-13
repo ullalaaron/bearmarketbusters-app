@@ -1,5 +1,4 @@
 import { Text, Image, Box, Flex } from "@chakra-ui/react";
-import "./comment.styles.scss";
 
 export interface ICommentProps {
   comment: string;
@@ -10,7 +9,7 @@ export function Comment(props: ICommentProps) {
   return (
     <Box position="relative" display="inline-block">
       <Image
-        src="./img/comment.svg"
+        src="./img/comment.png"
         display="block"
         maxW="100%"
         margin="auto"

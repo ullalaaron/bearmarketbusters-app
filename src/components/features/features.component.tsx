@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { BrownWave } from "../../shared/components/brown-wave/brown-wave.component";
 import {
   ClassicFeatureContainer,
@@ -30,13 +31,35 @@ export function Features() {
         <Heading color="brown">FEATURES</Heading>
         {features.map((feature, index) => {
           return index % 2 === 0 ? (
-            <ClassicFeatureContainer key={index}>
-              <Text>{feature}</Text>
-            </ClassicFeatureContainer>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              variants={{
+                visible: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0, scale: 0 },
+              }}
+            >
+              <ClassicFeatureContainer key={index}>
+                <Text>{feature}</Text>
+              </ClassicFeatureContainer>
+            </motion.div>
           ) : (
-            <InvertedFeatureContainer key={index}>
-              <Text>{feature}</Text>
-            </InvertedFeatureContainer>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+              variants={{
+                visible: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0, scale: 0 },
+              }}
+            >
+              <InvertedFeatureContainer key={index}>
+                <Text>{feature}</Text>
+              </InvertedFeatureContainer>
+            </motion.div>
           );
         })}
 

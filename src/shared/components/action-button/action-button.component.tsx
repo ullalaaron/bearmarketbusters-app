@@ -13,7 +13,7 @@ export function ActionButton(props: IActionButtonProps) {
       background="yellow"
       boxShadow="0.25rem 0.25rem 0 var(--chakra-colors-brown)"
       borderRadius="66px"
-      padding="0.5rem"
+      padding="0.8rem"
       disabled={props.disabled}
       _hover={{
         background: "brown",

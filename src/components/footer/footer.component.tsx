@@ -9,14 +9,14 @@ export function Footer(props: IFooterProps) {
     <Box>
       <Flex
         bg="black"
-        padding="3rem"
+        padding="2rem"
         direction={{ base: "column", md: "row" }}
         alignItems="center"
         justifyContent="space-evenly"
         alignContent="space-between"
       >
         <Logo inverted={true}></Logo>
-        <Box w={{ base: "90%", md: "70%" }}>
+        <Box w={{ base: "100%", md: "70%" }}>
           <ContactForm></ContactForm>
         </Box>
         <Button bg="transparent" variant="link">

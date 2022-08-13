@@ -1,5 +1,5 @@
 import { Box, styled } from "@chakra-ui/react";
-export const RoadmapItem = styled(Box, {
+export const RoadmapItemContainer = styled(Box, {
   baseStyle: {
     display: "flex",
     flexDirection: "row",
@@ -34,6 +34,7 @@ export const RoadmapItemDivider = styled(Box, {
   baseStyle: {
     borderLeft: "1rem dashed var(--chakra-colors-brown)",
     height: "8rem",
+    marginY: "1.5rem",
     content: "''",
   },
 });

@@ -1,10 +1,33 @@
 import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { BlackWave } from "../../shared/components/black-wave/black-wave.component";
-import { RoadmapItem, RoadmapItemDivider } from "./roadmap.styles";
-
+import {
+  RoadmapItem,
+  RoadmapItemDto,
+} from "./roadmap-item/roadmap-item.component";
 export interface IRoadmapProps {}
 
 export function Roadmap(props: IRoadmapProps) {
+  const items: RoadmapItemDto[] = [
+    {
+      text: "0% Launch 🚀",
+      description: "Have my sister draw 10 bears on the iOS notes app",
+    },
+    {
+      text: "33% Sell all bears 👛",
+      description:
+        "Find 9 absolutely amazing people willing to spend ETH on bears jpegs",
+    },
+    {
+      text: "66% Buy an e-bike 🚴",
+      description: "Lambos are overrated. And too expensive.",
+    },
+    {
+      text: "99% Bear Market Gone 🎉",
+      description:
+        "After all bearks are sold, bear market will be gone 🎉. At least for me.",
+    },
+  ];
   return (
     <Box
       bg="whiteGray"
@@ -29,78 +52,27 @@ export function Roadmap(props: IRoadmapProps) {
         margin="5rem auto"
         alignItems="center"
       >
-        <RoadmapItem>
-          <Box className="textContainer">
-            <Text className="mainText" color="brown">
-              0% Launch 🚀
-            </Text>
-          </Box>
-          <Box className="imageContainer">
-            <Image src="./img/brown-circle.png" />
-          </Box>
-          <Box className="textContainer">
-            <Box className="descriptionContainer">
-              <Text>Have my sister draw 10 bears on the iOS notes app</Text>
-            </Box>
-          </Box>
-        </RoadmapItem>
-        <RoadmapItemDivider></RoadmapItemDivider>
-        <RoadmapItem>
-          <Box className="textContainer">
-            <Box className="descriptionContainer">
-              <Text>
-                Find 9 absolutely amazing people willing to spend ETH on bears
-                jpegs
-              </Text>
-            </Box>
-          </Box>
-          <Box className="imageContainer">
-            <Image src="./img/brown-circle.png" />
-          </Box>
-
-          <Box className="textContainer">
-            <Text className="mainText" color="brown">
-              33% Sell all bears 👛
-            </Text>
-          </Box>
-        </RoadmapItem>
-        <RoadmapItemDivider></RoadmapItemDivider>
-        <RoadmapItem>
-          <Box className="textContainer">
-            <Text className="mainText" color="brown">
-              66% Buy an e-bike 🚴
-            </Text>
-          </Box>
-          <Box className="imageContainer">
-            <Image src="./img/brown-circle.png" />
-          </Box>
-          <Box className="textContainer">
-            <Box className="descriptionContainer">
-              <Text>Lambos are overrated. And too expensive.</Text>
-            </Box>
-          </Box>
-        </RoadmapItem>
-        <RoadmapItemDivider></RoadmapItemDivider>
-        <RoadmapItem>
-          <Box className="textContainer">
-            <Box className="descriptionContainer">
-              <Text>
-                After all bearks are sold, bear market will be gone 🎉. At least
-                for me.
-              </Text>
-            </Box>
-          </Box>
-          <Box className="imageContainer">
-            <Image src="./img/brown-circle.png" />
-          </Box>
-
-          <Box className="textContainer">
-            <Text className="mainText" color="brown">
-              99% Bear Market Gone 🎉
-            </Text>
-          </Box>
-        </RoadmapItem>
+        {items.map((item, index) => (
+          <RoadmapItem
+            item={item}
+            isInverted={index % 2 === 1}
+            showDivider={index < items.length - 1}
+            key={index}
+          />
+        ))}
       </Flex>
+      <motion.div
+        className="wave"
+        whileInView={{ scale: [1.0, 1.3, 1.0] }}
+        animate={{ rotate: [12, 0, -12, 0, 12, 0, -12, 0, 12, 0, -12, 0] }}
+        transition={{
+          rotate: { duration: 1.2, repeat: Infinity, repeatDelay: 3 },
+          scale: { duration: 1, delay: 3 },
+        }}
+        initial={{ rotate: 0 }}
+      >
+        <Text fontSize="3rem">👋</Text>
+      </motion.div>
       <BlackWave></BlackWave>
     </Box>
   );
