@@ -16,7 +16,7 @@ export interface IBearDetailProps {
 }
 
 export function BearDetail(props: IBearDetailProps) {
-  const cardVariants: Variants = {
+  const bearVariants: Variants = {
     offscreen: {
       y: 500,
     },
@@ -75,7 +75,7 @@ export function BearDetail(props: IBearDetailProps) {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
         >
-          <motion.div variants={cardVariants}>
+          <motion.div variants={bearVariants}>
             <Image src={props.bear.image} margin="0 auto" height="13rem" />
           </motion.div>
         </motion.div>
