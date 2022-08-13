@@ -75,8 +75,8 @@ export function RoadmapItem(props: IRoadmapItemProps) {
                 x2="10"
                 y2="210"
                 stroke="var(--chakra-colors-brown)"
-                stroke-width="10"
-                stroke-dasharray="0,10,15"
+                strokeWidth="10"
+                strokeDasharray="0,10,15"
               />
             </svg>
           </Flex>

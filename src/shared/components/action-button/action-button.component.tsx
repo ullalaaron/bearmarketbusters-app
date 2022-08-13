@@ -1,9 +1,10 @@
-import { Button } from "@chakra-ui/react";
+import { Button, StyleProps } from "@chakra-ui/react";
 
 export interface IActionButtonProps {
   disabled?: boolean;
   text: string;
   action?: () => void;
+  styleProps?: StyleProps;
 }
 
 export function ActionButton(props: IActionButtonProps) {
@@ -21,6 +22,7 @@ export function ActionButton(props: IActionButtonProps) {
         boxShadow: "0.3rem 0.3rem 0 var(--chakra-colors-yellow)",
       }}
       onClick={() => props.action && props.action()}
+      {...props.styleProps}
     >
       {props.text}
     </Button>

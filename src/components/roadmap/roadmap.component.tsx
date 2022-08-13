@@ -61,18 +61,7 @@ export function Roadmap(props: IRoadmapProps) {
           />
         ))}
       </Flex>
-      <motion.div
-        className="wave"
-        whileInView={{ scale: [1.0, 1.3, 1.0] }}
-        animate={{ rotate: [12, 0, -12, 0, 12, 0, -12, 0, 12, 0, -12, 0] }}
-        transition={{
-          rotate: { duration: 1.2, repeat: Infinity, repeatDelay: 3 },
-          scale: { duration: 1, delay: 3 },
-        }}
-        initial={{ rotate: 0 }}
-      >
-        <Text fontSize="3rem">👋</Text>
-      </motion.div>
+
       <BlackWave></BlackWave>
     </Box>
   );

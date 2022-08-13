@@ -32,6 +32,7 @@ export function Features() {
         {features.map((feature, index) => {
           return index % 2 === 0 ? (
             <motion.div
+              key={index}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -47,6 +48,7 @@ export function Features() {
             </motion.div>
           ) : (
             <motion.div
+              key={index}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}

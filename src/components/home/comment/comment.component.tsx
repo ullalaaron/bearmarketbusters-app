@@ -11,7 +11,8 @@ export function Comment(props: ICommentProps) {
       <Image
         src="./img/comment.png"
         display="block"
-        maxW="100%"
+        w={{ base: "90%", md: "100%" }}
+        maxW="35rem"
         margin="auto"
         padding="auto"
       ></Image>
