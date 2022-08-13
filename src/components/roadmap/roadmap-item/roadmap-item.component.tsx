@@ -4,6 +4,7 @@ import {
   RoadmapItemContainer,
   RoadmapItemDivider,
 } from "./roadmap-item.styles";
+import "./roadmap-item.styles.scss";
 
 export interface IRoadmapItemProps {
   item: RoadmapItemDto;
@@ -33,7 +34,7 @@ export function RoadmapItem(props: IRoadmapItemProps) {
       <motion.div
         initial="initial"
         whileInView="inView"
-        viewport={{ once: true }}
+        viewport={{}}
         transition={{ type: "tween", duration: 0.8 }}
         variants={{
           initial: { x: props.isInverted ? 150 : -150, scale: 0, opacity: 0 },
@@ -49,7 +50,38 @@ export function RoadmapItem(props: IRoadmapItemProps) {
           {props.isInverted ? textContainer : descriptionContainer}
         </RoadmapItemContainer>
       </motion.div>
-      {props.showDivider && <RoadmapItemDivider></RoadmapItemDivider>}
+      {/* {props.showDivider && <RoadmapItemDivider></RoadmapItemDivider>} */}
+      {props.showDivider && (
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{}}
+          transition={{ duration: 0.4 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+        >
+          <Flex width="100%" alignItems="center">
+            <svg
+              className="dashed-line"
+              height="12rem"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="10"
+                y1="10"
+                x2="10"
+                y2="210"
+                stroke="var(--chakra-colors-brown)"
+                stroke-width="10"
+                stroke-dasharray="0,10,15"
+              />
+            </svg>
+          </Flex>
+        </motion.div>
+      )}
     </Flex>
   );
 }

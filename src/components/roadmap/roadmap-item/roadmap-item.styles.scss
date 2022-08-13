@@ -1,0 +1,16 @@
+.dashed-line {
+	animation: c-dashed-line-path 3s ease-in-out infinite;
+    margin: 0 auto;
+	// fill: none;
+	// stroke-dasharray: 940; /* this is the entire length of the line */
+	// stroke-dashoffset: 940; /* this is the entire length of the line */
+	// stroke-width: 10;
+}
+@keyframes c-dashed-line-path {
+	from {
+		stroke-dashoffset: 100;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
