@@ -1,5 +1,6 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, Link, Stack } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { ActionButton } from "../../shared/components/action-button/action-button.component";
 import { Logo } from "../../shared/components/logo/logo.component";
@@ -49,6 +50,7 @@ export function Navbar(props: INavbarProps) {
         className="menu-items"
       >
         <Stack
+          as={motion.div}
           spacing={8}
           align="center"
           justify={["center", "center", "flex-end", "flex-end"]}

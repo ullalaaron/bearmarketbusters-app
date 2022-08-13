@@ -66,8 +66,8 @@ export function BearList(props: IBearListProps) {
         </Box>
       )}
       {!isLoading && (
-        <Box paddingBottom="25rem" paddingTop="3rem">
-          <Box w="100vw" maxWidth="80rem">
+        <Box width="100%" paddingBottom="25rem" paddingTop="3rem">
+          <Box maxWidth="80rem">
             <AliceCarousel
               mouseTracking
               activeIndex={0}
