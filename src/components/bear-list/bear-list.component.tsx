@@ -8,25 +8,31 @@ import {
   BearMarketBuster,
 } from "../bear-detail/bear-detail.component";
 
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
 export interface IBearListProps {}
 
 export function BearList(props: IBearListProps) {
+  const handleDragStart = (e: any) => e.preventDefault();
+
   const [isLoading, setIsLoading] = useState(true);
-  const [bearList, setBearList] = useState<BearMarketBuster[]>([]);
+  const [bearList, setBearList] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   async function fetchData() {
-    const items = [];
+    const items: JSX.Element[] = [];
     for (let i = 0; i < 10; i++) {
       var response = await fetch(BMB_METADATA_BASEURL + "/" + i + ".json");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const json = (await response.json()) as BearMarketBuster;
-      items.push(json);
+      const bear = <BearDetail bear={json} />;
+      items.push(bear);
     }
     setBearList(items);
     setIsLoading(false);
@@ -59,11 +65,25 @@ export function BearList(props: IBearListProps) {
       )}
       {!isLoading && (
         <Box paddingBottom="25rem">
-          <Flex wrap="wrap" justifyContent="space-evenly" maxWidth="90rem">
+          <Box maxWidth="90rem">
+            <AliceCarousel
+              mouseTracking
+              activeIndex={0}
+              items={bearList}
+              infinite={true}
+              keyboardNavigation={true}
+              responsive={{
+                0: { items: 1 },
+                768: { items: 3 },
+              }}
+            />
+          </Box>
+
+          {/* <Flex wrap="wrap" justifyContent="space-evenly" maxWidth="90rem">
             {bearList.map((bear, index) => {
               return <BearDetail key={index} bear={bear}></BearDetail>;
             })}
-          </Flex>
+          </Flex> */}
           <Image
             src="/img/tree2.png"
             position="absolute"
