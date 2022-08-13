@@ -21,12 +21,18 @@ export function BearDetail(props: IBearDetailProps) {
       marginX="1rem"
       padding="1rem"
       bg="whiteGray"
-      border={"0.5rem solid var(--chakra-colors-brown)"}
       borderRadius="2rem"
       direction="column"
       alignItems="center"
       flexBasis={["100%", "31%"]}
       zIndex={1}
+      boxShadow="0.15rem 0.15rem 0.15rem var(--chakra-colors-brown)"
+      _hover={{
+        cursor: "pointer",
+        boxShadow: "0.25rem 0.25rem 0.25rem var(--chakra-colors-brown)",
+        transform: "scale(1.05)",
+        transition: "all 0.2s ease-in-out",
+      }}
     >
       <Flex
         direction="row"
@@ -52,17 +58,10 @@ export function BearDetail(props: IBearDetailProps) {
           {props.bear.basePrice} ETH
         </Text>
       </Flex>
-      <Box
-        border={"0.25rem solid var(--chakra-colors-brown)"}
-        borderRadius="2rem"
-        bg="yellow"
-        padding="1rem"
-        marginY="1rem"
-      >
+      <Box borderRadius="2rem" bg="yellow" padding="1rem" marginY="1rem">
         <Image src={props.bear.image} margin="0 auto" height="13rem" />
       </Box>
       <Flex
-        border={"0.25rem dashed var(--chakra-colors-brown)"}
         borderRadius="2rem"
         padding="1rem"
         alignItems="center"
