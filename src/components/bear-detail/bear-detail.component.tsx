@@ -1,4 +1,5 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { motion, Variants } from "framer-motion";
 import { ActionButton } from "../../shared/components/action-button/action-button.component";
 
 export interface BearMarketBuster {
@@ -15,14 +16,26 @@ export interface IBearDetailProps {
 }
 
 export function BearDetail(props: IBearDetailProps) {
+  const cardVariants: Variants = {
+    offscreen: {
+      y: 500,
+    },
+    onscreen: {
+      y: 0,
+      rotate: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
   return (
     <Flex
       onDrag={(e) => e.preventDefault()}
-      margin="0 auto"
       w="90vw"
       maxW="25rem"
-      marginY="2rem"
-      marginX="1rem"
+      margin={"2rem auto"}
       padding="1rem"
       bg="whiteGray"
       borderRadius="2rem"
@@ -57,7 +70,15 @@ export function BearDetail(props: IBearDetailProps) {
         </Text>
       </Flex>
       <Box borderRadius="2rem" bg="yellow" padding="1rem" marginY="1rem">
-        <Image src={props.bear.image} margin="0 auto" height="13rem" />
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
+        >
+          <motion.div variants={cardVariants}>
+            <Image src={props.bear.image} margin="0 auto" height="13rem" />
+          </motion.div>
+        </motion.div>
       </Box>
       <Flex
         borderRadius="2rem"
