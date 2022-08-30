@@ -44,7 +44,18 @@ export function BearDetail(props: IBearDetailProps) {
       flexBasis={["100%", "31%"]}
       zIndex={1}
       boxShadow="0.15rem 0.15rem 0.15rem var(--chakra-colors-brown)"
+      position="relative"
     >
+      {props.bear.minted && (
+        <Image
+          src="img/sold-out.png"
+          position="absolute"
+          left="-7.5rem"
+          top="45%"
+          rotate={"45deg"}
+          width="15rem"
+        ></Image>
+      )}
       <Flex
         direction="row"
         alignItems="center"

@@ -1,9 +1,6 @@
 import { Box, Text, Image, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import {
-  RoadmapItemContainer,
-  RoadmapItemDivider,
-} from "./roadmap-item.styles";
+import { RoadmapItemContainer } from "./roadmap-item.styles";
 import "./roadmap-item.styles.scss";
 
 export interface IRoadmapItemProps {

@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading, Image, Spinner } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { BMB_METADATA_BASEURL } from "../../conf";
+import { useContext, useEffect, useState } from "react";
+import { BMB_METADATA_BASEURL, NFT_ABI, NFT_ADDRESS } from "../../conf";
 import { BrownWave } from "../../shared/components/brown-wave/brown-wave.component";
 import { YellowWave } from "../../shared/components/yellow-wave/yellow-wave.component";
 import {
@@ -14,29 +14,60 @@ import {
 
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { setWallet } from "../../utils/web3.utils";
+import { WalletContext } from "../../context/wallet.context";
+import { Contract, ethers } from "ethers";
 
 export interface IBearListProps {}
 
 export function BearList(props: IBearListProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const [bearList, setBearList] = useState<JSX.Element[]>([]);
+  const [bearList, setBearList] = useState<BearMarketBuster[]>([]);
+
+  const walletContext = useContext(WalletContext);
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (walletContext?.walletState?.provider && bearList?.length) {
+      getTokenIdsMinted(walletContext?.walletState?.provider, bearList);
+    }
+  }, [walletContext?.walletState]);
+
+  const getTokenIdsMinted = async (
+    provider: ethers.providers.Web3Provider,
+    bearList: BearMarketBuster[]
+  ) => {
+    const nftContract = new Contract(NFT_ADDRESS, NFT_ABI, provider);
+    const updatedList = await Promise.all(
+      bearList.map(async (item, index) => {
+        try {
+          const _ = await nftContract.tokenURI(index);
+          item.minted = true;
+        } catch {
+          item.minted = false;
+        }
+        return item;
+      })
+    );
+    console.log(updatedList);
+    setBearList(updatedList);
+  };
+
   async function fetchData() {
-    const items: JSX.Element[] = [];
+    const items: BearMarketBuster[] = [];
     for (let i = 0; i < 10; i++) {
       var response = await fetch(BMB_METADATA_BASEURL + "/" + i + ".json");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const json = (await response.json()) as BearMarketBuster;
-      const bear = <BearDetail bear={json} />;
-      items.push(bear);
+      items.push(json);
     }
     setBearList(items);
+    setWallet(walletContext!);
     setIsLoading(false);
   }
 
@@ -71,7 +102,9 @@ export function BearList(props: IBearListProps) {
             <AliceCarousel
               mouseTracking
               activeIndex={0}
-              items={bearList}
+              items={bearList.map((item) => (
+                <BearDetail bear={item}></BearDetail>
+              ))}
               infinite={true}
               keyboardNavigation={true}
               responsive={{
