@@ -1,12 +1,8 @@
 import "./App.scss";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { Navbar } from "./components/navbar/navbar.component";
-import { Home } from "./components/home/home.components";
-import { Features } from "./components/features/features.component";
-import { HowItWorks } from "./components/how-it-works/how-it-works.component";
-import { BearList } from "./components/bear-list/bear-list.component";
-import { Roadmap } from "./components/roadmap/roadmap.component";
-import { Footer } from "./components/footer/footer.component";
+import { WalletProvider } from "./context/wallet.context";
+import { ModalProvider } from "./context/modal.context";
+import { Main } from "./components/main/main.component";
 
 function App() {
   const colors = {
@@ -24,15 +20,13 @@ function App() {
   const theme = extendTheme({ colors, fonts });
 
   return (
-    <ChakraProvider theme={theme}>
-      <Navbar></Navbar>
-      <Home></Home>
-      <Features></Features>
-      <HowItWorks></HowItWorks>
-      <BearList></BearList>
-      <Roadmap></Roadmap>
-      <Footer></Footer>
-    </ChakraProvider>
+    <ModalProvider>
+      <WalletProvider>
+        <ChakraProvider theme={theme}>
+          <Main></Main>
+        </ChakraProvider>
+      </WalletProvider>
+    </ModalProvider>
   );
 }
 
