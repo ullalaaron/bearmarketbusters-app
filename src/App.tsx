@@ -3,6 +3,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { WalletProvider } from "./context/wallet.context";
 import { ModalProvider } from "./context/modal.context";
 import { Main } from "./components/main/main.component";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const colors = {
@@ -22,9 +23,11 @@ function App() {
   return (
     <ModalProvider>
       <WalletProvider>
-        <ChakraProvider theme={theme}>
-          <Main></Main>
-        </ChakraProvider>
+        <BrowserRouter>
+          <ChakraProvider theme={theme}>
+            <Main></Main>
+          </ChakraProvider>
+        </BrowserRouter>
       </WalletProvider>
     </ModalProvider>
   );

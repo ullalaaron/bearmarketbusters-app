@@ -15,6 +15,7 @@ import { WalletContext } from "../../context/wallet.context";
 import { ActionButton } from "../../shared/components/action-button/action-button.component";
 import { Logo } from "../../shared/components/logo/logo.component";
 import { setWallet } from "../../utils/web3.utils";
+import { HashLink } from "react-router-hash-link";
 import "./navbar.styles.scss";
 
 export const Install: FC = () => {
@@ -61,7 +62,28 @@ export function Navbar(props: INavbarProps) {
   const walletContext = useContext(WalletContext);
   const modalContext = useContext(ModalContext);
 
-  const menuItems = ["Home", "Features", "Mint", "Roadmap", "About"];
+  const menuItems = [
+    {
+      title: "Home",
+      section: "#home",
+    },
+    {
+      title: "Features",
+      section: "#features",
+    },
+    {
+      title: "Mint",
+      section: "#mint",
+    },
+    {
+      title: "Roadmap",
+      section: "#roadmap",
+    },
+    {
+      title: "About",
+      section: "#about",
+    },
+  ];
   useEffect(() => {
     if (
       walletContext?.walletState?.provider &&
@@ -131,9 +153,15 @@ export function Navbar(props: INavbarProps) {
           height={{ base: "100vh", md: "auto" }}
         >
           {menuItems.map((item, i) => (
-            <Link key={i} color="black">
-              <Button variant="nav"> {item} </Button>
-            </Link>
+            <HashLink
+              to={item.section}
+              smooth
+              key={i}
+              color="black"
+              onClick={() => toggle()}
+            >
+              <Button variant="nav"> {item.title} </Button>
+            </HashLink>
           ))}
         </Stack>
       </Box>

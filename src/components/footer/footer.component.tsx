@@ -1,12 +1,13 @@
 import { Box, Button, Flex, Image } from "@chakra-ui/react";
 import { Logo } from "../../shared/components/logo/logo.component";
 import { ContactForm } from "./contact-form/contact-form.component";
+import { HashLink } from "react-router-hash-link";
 
 export interface IFooterProps {}
 
 export function Footer(props: IFooterProps) {
   return (
-    <Box>
+    <Box id="about">
       <Flex
         bg="black"
         padding="2rem"
@@ -20,7 +21,9 @@ export function Footer(props: IFooterProps) {
           <ContactForm></ContactForm>
         </Box>
         <Button bg="transparent" variant="link">
-          <Image maxW="8rem" src="./img/yellow-arrow-up.png"></Image>
+          <HashLink to="#top" smooth>
+            <Image maxW="8rem" src="./img/yellow-arrow-up.png"></Image>
+          </HashLink>
         </Button>
       </Flex>
     </Box>

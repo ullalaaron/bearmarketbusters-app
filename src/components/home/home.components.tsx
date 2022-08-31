@@ -44,6 +44,7 @@ export function Home(props: IHomeProps) {
       w="100%"
       paddingTop="8rem"
       position="relative"
+      id="home"
     >
       <Box marginBottom="2rem">
         <Text color="brown" fontWeight="400" fontSize={["1.5rem"]}>

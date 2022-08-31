@@ -1,4 +1,13 @@
-import { Box, Button, Flex, Heading, Image, Spinner } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import { BMB_METADATA_BASEURL, NFT_ABI, NFT_ADDRESS } from "../../conf";
 import { BrownWave } from "../../shared/components/brown-wave/brown-wave.component";
@@ -17,6 +26,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import { setWallet } from "../../utils/web3.utils";
 import { WalletContext } from "../../context/wallet.context";
 import { Contract, ethers } from "ethers";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export interface IBearListProps {}
 
@@ -78,6 +88,7 @@ export function BearList(props: IBearListProps) {
       position="relative"
       alignItems="center"
       justifyContent="center"
+      id="mint"
     >
       <BrownWave
         rotate={true}
@@ -130,6 +141,20 @@ export function BearList(props: IBearListProps) {
                 console.log(e);
               }}
             />
+          </Box>
+          <Box textAlign="center" marginTop={"5rem"}>
+            <Text>Verified smart contract address:</Text>
+            <Link
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              textDecoration="underline"
+              cursor="pointer"
+            >
+              <Button variant="nav">
+                #021561345789 <ExternalLinkIcon mx="2px" />
+              </Button>
+            </Link>
           </Box>
           <Image
             src="/img/tree2.png"

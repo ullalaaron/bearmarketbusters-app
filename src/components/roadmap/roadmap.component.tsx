@@ -34,6 +34,7 @@ export function Roadmap(props: IRoadmapProps) {
       paddingBottom="15rem"
       textAlign="center"
       position="relative"
+      id="roadmap"
     >
       <Heading
         color="white"

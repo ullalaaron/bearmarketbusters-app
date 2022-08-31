@@ -17,7 +17,13 @@ export function Features() {
     "NONE OF THE FUNDS WILL BE SHARED WITH THE COMMUNTY BECAUSE THERE IS NO COMMUNITY",
   ];
   return (
-    <Box paddingTop="3rem" bg="whiteGray" width="100%" position="relative">
+    <Box
+      paddingTop="3rem"
+      bg="whiteGray"
+      width="100%"
+      position="relative"
+      id="features"
+    >
       <Flex
         direction="column"
         justifyContent="space-between"
