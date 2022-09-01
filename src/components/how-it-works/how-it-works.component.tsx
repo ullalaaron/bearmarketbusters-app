@@ -28,7 +28,7 @@ export function HowItWorks(props: IHowItWorksProps) {
           <Text as={Heading} className="number">
             2
           </Text>
-          <NumberDescription>Mint it for a ridiculouse price</NumberDescription>
+          <NumberDescription>Mint it for a ridiculous price</NumberDescription>
         </NumberContainer>
         <Divider></Divider>
         <NumberContainer>

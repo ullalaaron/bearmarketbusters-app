@@ -24,7 +24,7 @@ export function Roadmap(props: IRoadmapProps) {
     {
       text: "99% Bear Market Gone 🎉",
       description:
-        "After all bearks are sold, bear market will be gone 🎉. At least for me.",
+        "After all bears are sold, bear market will be gone 🎉. At least for me.",
     },
   ];
   return (
