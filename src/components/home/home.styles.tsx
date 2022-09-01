@@ -26,7 +26,7 @@ export const SideBearImage = styled(Image, {
     opacity: props.idle ? 1 : 0,
     width: ["22rem", "30rem"],
     position: "fixed",
-    zIndex: "1",
+    zIndex: props.idle ? 1 : -1,
     transition: "opacity 1s ease",
   }),
 });

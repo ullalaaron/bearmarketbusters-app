@@ -59,33 +59,21 @@ export function ContactForm(props: IContactFormProps) {
   return (
     <Box maxW="40rem" paddingY={{ base: "3rem", md: 0 }} margin="0 auto">
       <HStack marginBottom="1rem">
-        <Link
-          as={Button}
-          w="33%"
-          colorScheme="medium"
-          leftIcon={<AiFillLinkedin />}
-          onClick={() => window.open(LINKEDIN_URL, "_blank")}
-        >
-          LinkedIn
-        </Link>
-        <Link
-          as={Button}
-          w="33%"
-          colorScheme="medium"
-          leftIcon={<AiFillMediumCircle />}
-          onClick={() => window.open(MEDIUM_URL, "_blank")}
-        >
-          Medium
-        </Link>
-        <Link
-          as={Button}
-          w="33%"
-          colorScheme="medium"
-          leftIcon={<AiFillGithub />}
-          onClick={() => window.open(GITHUB_URL, "_blank")}
-        >
-          GitHub
-        </Link>
+        <Button w="33%" colorScheme="medium" leftIcon={<AiFillLinkedin />}>
+          <Link href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </Link>
+        </Button>
+        <Button w="33%" colorScheme="medium" leftIcon={<AiFillMediumCircle />}>
+          <Link href={MEDIUM_URL} target="_blank" rel="noopener noreferrer">
+            Medium
+          </Link>
+        </Button>
+        <Button w="33%" colorScheme="medium" leftIcon={<AiFillGithub />}>
+          <Link href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </Link>
+        </Button>
       </HStack>
       <form
         action={FORM_ENDPOINT}

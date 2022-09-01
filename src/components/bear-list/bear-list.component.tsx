@@ -224,19 +224,20 @@ export function BearList(props: IBearListProps) {
                 }}
               />
             </Box>
-            <Box textAlign="center" marginTop={"5rem"}>
+            <Box textAlign="center" marginTop={"5rem"} w="100%">
               <Text>Verified smart contract address:</Text>
-              <Link
-                href="https://etherscan.io/address/0xa49743674cc55c306fe919949665114c9a7c0e83"
-                target="_blank"
-                rel="noopener noreferrer"
-                textDecoration="underline"
-                cursor="pointer"
-              >
-                <Button variant="nav">
+              <Button variant="nav" maxW="100%" textOverflow={"ellipsis"}>
+                <Link
+                  href="https://etherscan.io/address/0xa49743674cc55c306fe919949665114c9a7c0e83"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  textDecoration="underline"
+                  cursor="pointer"
+                  textOverflow={"ellipsis"}
+                >
                   {NFT_ADDRESS} <ExternalLinkIcon mx="2px" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </Box>
             <Image
               src="/img/tree2.png"
