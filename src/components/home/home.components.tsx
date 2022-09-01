@@ -71,7 +71,7 @@ export function Home(props: IHomeProps) {
         idle={+isIdle}
         src="./img/Rascal.png"
       ></RightSideBearImage>
-      <MintTimer></MintTimer>
+      <MintTimer isLive={true}></MintTimer>
       <SimpleGrid
         columns={{ sm: 1, md: 3 }}
         w="100%"

@@ -227,7 +227,7 @@ export function BearList(props: IBearListProps) {
             <Box textAlign="center" marginTop={"5rem"}>
               <Text>Verified smart contract address:</Text>
               <Link
-                href="https://google.com"
+                href="https://etherscan.io/address/0xa49743674cc55c306fe919949665114c9a7c0e83"
                 target="_blank"
                 rel="noopener noreferrer"
                 textDecoration="underline"
