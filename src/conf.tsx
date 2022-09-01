@@ -1,7 +1,12 @@
 export const BMB_METADATA_BASEURL =
   "https://bmb.mypinata.cloud/ipfs/QmVfPyNGcMVzFoFccDNQWH4WNnq6GyxA9bumYjCK4jq6LH";
 
-export const NFT_ADDRESS = "0x0C6151323528cC2f7b4dF92D98784e928e022ce8";
+export const NFT_ADDRESS = "0xa49743674cC55c306Fe919949665114c9a7C0E83";
+
+export const TEST_NFT_ADDRESS = "0x281AbC5A5ad8d2aF1C058873Ca45eB0dFBcBBb80";
+
+export const CHAIN_ID = 1;
+export const TEST_CHAIN_ID = 5777;
 
 export const NFT_ABI = [
   {

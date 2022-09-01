@@ -1,7 +1,6 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 import { ActionButton } from "../../shared/components/action-button/action-button.component";
-
 export interface BearMarketBuster {
   tokenId: number;
   name: string;
@@ -13,6 +12,7 @@ export interface BearMarketBuster {
 
 export interface IBearDetailProps {
   bear: BearMarketBuster;
+  mintFn: (item: BearMarketBuster) => void;
 }
 
 export function BearDetail(props: IBearDetailProps) {
@@ -30,6 +30,7 @@ export function BearDetail(props: IBearDetailProps) {
       },
     },
   };
+
   return (
     <Flex
       onDrag={(e) => e.preventDefault()}
@@ -114,9 +115,7 @@ export function BearDetail(props: IBearDetailProps) {
         <ActionButton
           text="MINT NOW"
           disabled={props.bear.minted}
-          action={() => {
-            console.log("hi");
-          }}
+          action={() => props.mintFn(props.bear)}
         />
       </Flex>
     </Flex>

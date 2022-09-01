@@ -17,6 +17,7 @@ import { Logo } from "../../shared/components/logo/logo.component";
 import { setWallet } from "../../utils/web3.utils";
 import { HashLink } from "react-router-hash-link";
 import "./navbar.styles.scss";
+import { CHAIN_ID } from "../../conf";
 
 export const Install: FC = () => {
   return (
@@ -87,7 +88,7 @@ export function Navbar(props: INavbarProps) {
   useEffect(() => {
     if (
       walletContext?.walletState?.provider &&
-      walletContext?.walletState?.provider?.network.chainId !== 1
+      walletContext?.walletState?.provider?.network.chainId !== CHAIN_ID
     ) {
       toast({
         title: "Wrong Network",
